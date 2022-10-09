@@ -1,0 +1,34 @@
+@use 'variables' as v;
+@use 'mixins';
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: v.$White;
+    font-family: v.$BodyFont;
+    color: v.$VeryDarkCyan;
+}
+
+.main-container {
+    &__main-view {       
+        width: 375px;    
+        margin: 0 auto 0;
+        background-color: v.$VeryPaleCyan;    
+        background: {
+            image: url(../images/bg-hero-mobile.svg);
+            repeat: no-repeat;
+        }          
+        @include mixins.desktop-view(1347px); 
+    }
+    
+}
+
+
+    
+
+
+

@@ -1,0 +1,186 @@
+@use 'variables' as v;
+@use 'initial-setup';
+@use 'mixins';
+@use 'footer';
+
+/***************Background Images******************/
+.main-container {
+    @include mixins.desktop-image;
+    &__main-view {
+        @include mixins.desktop-view(1347px);
+        padding-top: 15px;
+        padding-bottom: 43px;
+    }
+    
+}
+
+/***************Navbar******************/
+.navbar {
+    margin: 25 auto;    
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 75px;    
+
+    &__logo {
+        width: 110px;
+        height: 18px;
+        @include mixins.desktop-view(240px, 38px);
+    }
+
+    &__button {      
+        font-weight: 500;
+        @include mixins.btn(false, 110px, 25px, v.$White, v.$Black, 0.7em);        
+        @include mixins.hover-btn(v.$LightPink, v.$White);              
+        @include mixins.desktop-view(150px, 40px, 0.8em);      
+    }
+}
+
+/***************Header******************/
+.header {
+ 
+    &__title {
+        font-family: v.$HeadingsFont;
+        text-align: center;
+        width: 265px;
+        font-size: 1.34em;
+        font-weight: 700;
+        margin: 0 auto 25px;       
+    }
+
+    &__description {
+        text-align: center;
+        margin: 0 auto 40px;
+        font-weight: 500;
+        font-size: 0.85em;
+        line-height: 25px;
+        width: 290px;        
+    }
+
+    &__button {
+        @include mixins.btn(true, 220px, 40px, v.$Pink, v.$White, 0.7em);
+        @include mixins.hover-btn(v.$LightPink, v.$White);        
+        margin-bottom: 55px;       
+    }
+
+    &__screenMockups {
+        width: 300px;
+        display: block;
+        margin: 0 auto;
+        padding-bottom: 55px;                
+    }  
+
+    @include mixins.desktop-view(100%, unset, unset);   
+    @media (min-width: 1347px){        
+        display: flex;  
+        justify-content: center;
+        align-items: center;  
+        gap: 75px;    
+        .header {               
+            &__leftside {
+                width: 450px;               
+            }
+            
+            &__rightside {
+                width: 680px;
+                height: 500px;              
+            }
+            
+            &__screenMockups {
+                width: 680px;
+                height: 480px;
+            }
+
+            &__title {
+                width: 450px;
+                text-align: left; 
+                font-size: 2.2em; 
+            }
+            
+            &__description {
+                text-align: left; 
+                width: 450px;    
+                font-size: 0.91em;
+                font-weight: 500;
+            }
+
+            &__button {
+                @include mixins.btn(false, 250px, 50px, v.$Pink, v.$White, 0.8em);
+                @include mixins.hover-btn(v.$LightPink, v.$White);              
+                margin-left: 0px;               
+            }
+        }
+    }      
+}
+
+/***************Sections******************/
+.sections {             
+    padding: 60px 0 170px;
+    width: 375px;
+    margin: 0 auto;
+
+    &__grow-together {
+        width: 340px;
+        height: 490px;    
+        margin: 0 auto;   
+        padding: 50px 40px 30px; 
+        box-shadow: 1px 3px 3px 3px v.$FadingGraish;
+        border-radius: 10px;    
+        margin-bottom: 40px;      
+        @include mixins.flexSection;
+        @include mixins.flexSection-desktop(row-reverse);
+    }
+
+    &__flowing-conversations {
+        @extend .sections__grow-together;
+        @include mixins.flexSection;
+        @include mixins.flexSection-desktop(row);
+        @include mixins.banner('../images/bg-section-bottom-mobile-1.svg', '../images/bg-section-top-mobile-2.svg');
+        @include mixins.banner-desktop('../images/bg-section-bottom-desktop-1.svg', '../images/bg-section-top-desktop-2.svg');
+    }
+
+    &__your-users {
+        @extend .sections__grow-together;
+        @include mixins.flexSection;
+        @include mixins.flexSection-desktop(row-reverse);
+    }
+
+    @include mixins.desktop-view(100%, unset, unset);   
+    @media (min-width: 1347px){
+        padding: 120px 65px 300px;
+    }     
+}
+
+/************Your Communitie Section**************/
+.your-comunity {   
+    width: 340px;
+    height: 150px;    
+    margin: 0 auto;       
+    padding: 50px 40px 30px; 
+    box-shadow: 1px 3px 3px 3px v.$FadingGraish;
+    border-radius: 10px;
+    font-size: 0.64em;
+    font-weight: 700;
+
+    position: relative;
+    margin-top: -110px;   
+    background-color:  v.$White;       
+    justify-content: center;
+    align-items: center;
+
+    &__title {
+        text-align: center;   
+        margin-top: -15px;   
+    }
+
+    &__button {
+        @include mixins.btn(true, 220px, 40px, v.$Pink, v.$White, 1.1em);
+        @include mixins.hover-btn(v.$LightPink, v.$White);
+        margin-top: 20px; 
+        @include mixins.desktop-view(350px, 60px, 0.8em); 
+    }
+
+    @include mixins.desktop-view (800px, 280px, 1.6em);       
+}
+
